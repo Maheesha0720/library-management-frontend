@@ -1,0 +1,170 @@
+.publisher-container {
+    display: flex;
+    
+  }
+  
+  .publisher-content {
+    flex: 1;
+    padding: 1rem;
+    
+  }
+  .publisher-content h1{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 50px;
+    text-align: center;
+  }
+  .publisher-table {
+      margin: 20px 0;
+      border: none;
+      border-collapse: separate;
+      text-align: center;
+
+    }
+    
+    .table-head, .publisher-data{
+      padding: 10px;
+      
+      border-radius: 5px;
+    }
+    .table-head {
+      background-color: #89e290;
+    }
+    .publisher-table tbody tr{
+      background-color: #caf7a59d;
+    
+    }
+    .publisher-table tbody tr:hover{
+      background-color: #b9f08caa;
+    }
+    .btn-edit,.btn-delete {
+      margin: 0 5px;
+      cursor: pointer;
+      
+    }
+    .btn-edit{
+      background-color: gold;
+      border:none;
+      border-radius: 5px;
+      padding: 2px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .btn-edit:hover{
+      transform: scale(1.05);
+    }
+    .btn-delete{
+      background-color: rgb(246, 57, 44);
+      border:none;
+      border-radius: 5px;
+      padding: 2px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .btn-delete:hover{
+      transform: scale(1.05);
+    }
+    /* --------------------------------------- */
+    .edit-publisher-form {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #70f277;
+      background-color: #caf7a59d;
+      border-radius: 5px;
+      width: 60%;
+      margin: auto;
+    }
+    
+    .edit-publisher-form h2 {
+      margin-bottom: 10px;
+    }
+    
+    .edit-publisher-form div {
+      margin-bottom: 10px;
+    
+    }
+    
+    .edit-publisher-form label {
+      margin-right: 10px;
+    }
+    
+    .edit-publisher-form input {
+      padding: 5px;
+      margin-right: 10px;
+      border: 1px solid #70f277;
+      border-radius: 3px;
+    }
+    
+    .edit-publisher-form button {
+      margin-right: 10px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .edit-publisher-form .btn-cancel{
+      background-color:#28a745 ;
+      color: white;
+    }
+    .edit-publisher-form button:hover {
+      background-color: #218838;
+      color: white;
+    }
+    .add-publisher-form {
+      
+      padding: 20px;
+      border: 1px solid #70f277;
+      border-radius: 5px;
+      background-color: #caf7a59d;
+      width: 60%;
+      margin: auto;
+      margin-bottom: 10px;
+  
+    }
+    
+    .add-publisher-form input {
+      margin: 10px 5px;
+      padding: 8px;
+      width: 200px;
+      border: 1px solid #70f277;
+      border-radius: 4px;
+    }
+    
+    .btn-add {
+      margin: 10px 0;
+      padding: 8px 12px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .btn-add:hover {
+      background-color: #218838;
+    }
+    
+    .btn-save {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .btn-save:hover {
+      background-color: #20d74b;
+    }
+    .btn-refresh{
+        padding: 8px 12px;
+      background-color: #28a745;
+      color: #fcfcfc;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      
+    }
+    .btn-refresh:hover {
+        background-color: #218838;
+      }
