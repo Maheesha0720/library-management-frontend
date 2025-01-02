@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+  display: flex;
+  
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+}
+.dashboard-content h1{
+  font-family:'Times New Roman', Times, serif;
+  font-size: 50px;
+}
+.stats {
+  gap: 1rem;
+  margin-top: 40px !important;
+  margin: auto;
+
+}
+  .card-box{
+  width: 30%;
+  margin-left: 20px;
+  }
+.stat-card {
+  background: #aef5c2d2;
+  padding: 12%;
+  border-radius: 8px;
+  text-align: center;
+  width:95%;
+  height: 200px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 30px;
+  font-family:'Times New Roman', Times, serif;
+  margin: 5px;
+}
+.stat-card:hover{
+  transform: scale(1.025);
+
+}
