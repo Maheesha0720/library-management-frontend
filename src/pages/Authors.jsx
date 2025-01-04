@@ -99,7 +99,7 @@ function Authors() {
     
           // Update the authors list with the new author
           setAuthors([...authors, addedAuthor]);
-          setNewAuthor({ authorName: '' }); // Reset input field
+          setNewAuthor({ authorName: '' }); 
         } else {
           console.error('Error adding author:', response.statusText);
         }

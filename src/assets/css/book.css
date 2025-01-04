@@ -1,0 +1,89 @@
+.book-container {
+    display: flex;
+    height: 600px;
+  }
+  
+  .book-content {
+    flex: 1;
+    padding: 1rem;
+     text-align: center;
+   
+  }
+  .book-content h1{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 50px;
+   margin-bottom: 30px;
+  }
+.book-card{
+  background-color:  #caf7a59d;
+  border:solid 1px #70f277;
+  padding: 10px;
+}  
+.book-card:hover{
+  transform: scale(1.03);
+}
+.card-title{
+  font-family:'DM Serif text';
+  font-size: 30px;
+}
+
+/* Edit Form Popup */
+.edit-form-overlay,.add-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.edit-form,.add-form {
+  background: rgb(173, 255, 166);
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+}
+
+.edit-form h2 , .add-form h2{
+  margin-bottom: 16px;
+}
+
+.edit-form label, .add-form label{
+  display: block;
+  margin-top: 8px;
+}
+
+.edit-form input,.add-form input {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  border: 1px solid #7ae761;
+  border-radius: 10px;
+}
+
+.edit-form-buttons,.form-buttons {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-form-buttons button,.form-buttons button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-form-buttons button:first-child,.form-buttons button:first-child {
+  background: #28a745;
+  color: white;
+}
+
+.edit-form-buttons button:last-child,.form-buttons button:last-child {
+  background: #dc3545;
+  color: white;
+}

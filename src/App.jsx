@@ -5,7 +5,7 @@ import Borrows from './pages/Borrows';
 import Authors from './pages/Authors';
 import Publishers from './pages/Publishers';
 import UserList from './pages/Users';
-
+import Borrowlist from './pages/Borrowlist';
 
 function App() {
   return (
@@ -17,6 +17,8 @@ function App() {
         <Route path="/authors" element={<Authors />} />
         <Route path="/publishers" element={<Publishers />} />
         <Route path="/users" element={<UserList />} />
+        <Route path="/borrowlist" element={<Borrowlist />} />
+
 
       </Routes>
     </Router>
