@@ -9,7 +9,7 @@ body {
 
 .dashboard-container {
   display: flex;
-  height: 600px;
+  height: 608px;
  
   
 }
@@ -36,13 +36,13 @@ body {
   margin-left: 20px;
   }
 .stat-card {
-  background: #89e290e3;
+  background: #37d05bd1;
   padding: 12%;
   border-radius: 8px;
   text-align: center;
   width:95%;
   height: 200px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.675);
   font-size: 30px;
   font-family:'Times New Roman', Times, serif;
   margin: 5px;

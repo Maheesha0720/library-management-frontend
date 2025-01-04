@@ -16,16 +16,20 @@
   .sidebar li {
     margin: 1rem 0;
     padding: 10%;
-    background-color: #89e290;
+    background-color: #30c552;
     border-radius: 10px;
   }
   .sidebar li:hover{
-    background-color: rgb(140, 250, 171);
+    background-color: #38e460;
     transform: scale(1.05);
 
   }
   .sidebar a {
     text-decoration: none;
     color: #333;
+    font-family:'DM serif text';
+    padding: 20px;
+    padding-left: 30px;
+    padding-right:30px ;
   }
   

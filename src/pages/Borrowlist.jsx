@@ -4,19 +4,22 @@ import Sidebar from "../components/Sidebar";
 import "../assets/css/borrow.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import iconRefresh from "../assets/img/iconRefresh.png";
+
 
 function Borrows() {
   const [borrows, setBorrows] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [statusOptions] = useState(["Borrowed", "Returned"]);
-  const [editBorrow, setEditBorrow] = useState(null);
+  const [refresh, setRefresh] = useState(false);
   const [updatedBorrow, setUpdatedBorrow] = useState({
     id: "",
     status: "",
   });
-  const [selectedBorrowId, setSelectedBorrowId] = useState(null);
-  const [selectedStatus, setSelectedStatus] = useState("");
 
+  const refreshPage = () => {
+    setRefresh((prev) => !prev);
+  };
+  ///////////////////////////////////////////////////
   useEffect(() => {
     const fetchBorrow = async () => {
       try {
@@ -35,72 +38,56 @@ function Borrows() {
       }
     };
     fetchBorrow();
-  }, []);
+  }, [refresh]);
   ///////////////////////////////////
-  const handleInputChange = (e, borrowId) => {
+  const handleInputChange = (e, id) => {
     const { value } = e.target;
-    setSelectedBorrowId(borrowId); // Set the selected borrowId
-    setSelectedStatus(value); // Set the selected status
+    setUpdatedBorrow({ id: id, status: value });
   };
 
-  // Handle author editing
-  
-  const handleStatusChange = async () => {
-    if (!selectedBorrowId || !selectedStatus) {
-      alert('Please select a status to update.');
-      return;
-    }
-  
+  const handleUpdate = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/borrow/update', {
-        method: 'PUT',
+      const response = await fetch("http://localhost:8080/api/borrow/update", {
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          borrowId: selectedBorrowId,
-          status: selectedStatus,
-        }),
+        body: JSON.stringify(updatedBorrow),
       });
-  
+
       if (response.ok) {
-        let updatedData = null;
-  
-        const contentType = response.headers.get('content-type');
-        if (contentType && contentType.includes('application/json')) {
-          updatedData = await response.json();
-        }
-  
-        console.log('Borrow updated successfully:', updatedData);
-  
+        const updatedData = await response.json();
+        console.log("status updated successfully:", updatedData);
+        // Update the author list after saving
         setBorrows((prevBorrows) =>
           prevBorrows.map((borrow) =>
-            borrow.id === selectedBorrowId ? { ...borrow, status: selectedStatus } : borrow
+            borrow.id === updatedData.id ? updatedData : borrow
           )
         );
-  
-        setSelectedBorrowId(null);
-        setSelectedStatus('');
-        alert('Status updated successfully!');
+        setUpdatedBorrow({ id: "", status: "" });
+        alert("updated success...");
       } else {
-        console.error('Error updating borrow:', response.statusText);
-        alert('Failed to update status. Please try again.');
+        console.error("Error updating status:", response.statusText);
       }
     } catch (error) {
-      console.error('Error updating borrow:', error);
-      alert('An error occurred while updating status.');
+      console.error("Error updating status:", error);
     }
   };
-  
 
   return (
     <div className="borrows">
       <Navbar />
-      <div className="borrow-container">
+      <div className="borrow-container" style={{height:"600px"}}>
         <Sidebar />
         <div className="borrow-content">
           <h1>Borrows List </h1>
           <div>
+            <div>
+              <button onClick={refreshPage} className="btn-refresh">
+                <img src={iconRefresh} alt="." style={{ width: "20px" }} />{" "}
+                Refresh Data
+              </button>
+            </div>
             {loading ? (
               <p>Loading...</p>
             ) : (
@@ -134,28 +121,28 @@ function Borrows() {
                           className="borrowlist-data"
                           style={{ display: "flex" }}
                         >
-                          <Form.Select
-                            style={{ width: "50px", textAlign: "center" }}
-                            value={
-                              selectedBorrowId === borrow.id
-                                ? selectedStatus
-                                : borrow.status
-                            }
-                            name="status"
-                            onChange={(e) => handleInputChange(e, borrow.id)}
-                          >
-                            {statusOptions.map((status) => (
-                              <option key={status} value={status}>
-                                {status}
-                              </option>
-                            ))}
-                          </Form.Select>
-                          <Button
-                            style={{ marginLeft: "10%" }}
-                            onClick={handleStatusChange}
-                          >
-                            Update
-                          </Button>
+                          <>
+                            <Form.Select
+                              style={{ width: "50px", textAlign: "center" }}
+                              name="status"
+                              onChange={(e) => handleInputChange(e, borrow.id)}
+                              value={
+                                updatedBorrow.id === borrow.id
+                                  ? updatedBorrow.status
+                                  : borrow.status
+                              }
+                            >
+                              <option>borrowed</option>
+                              <option>Returned</option>
+                            </Form.Select>
+                            <Button
+                              onClick={handleUpdate}
+                              style={{ marginLeft: "10%",backgroundColor:"#28a745",borderColor:"#28a745" }}
+                              disabled={updatedBorrow.id !== borrow.id}
+                            >
+                              Update
+                            </Button>
+                          </>
                         </td>
                       </tr>
                     ))}

@@ -130,7 +130,29 @@ function Book() {
     setNewBook({ bookTitle: "", authorId: "", publisherId: "" });
   };
   /////////////////////////////////////////////
-
+  const handleDelete = async (bookId) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this book?"
+    );
+    if (confirmDelete) {
+      try {
+        const response = await fetch(
+          `http://localhost:8080/api/book/delete/${bookId}`,
+          {
+            method: "DELETE",
+          }
+        );
+        if (response.ok) {
+          setBooks(books.filter((book) => book.bookId !== bookId)); // Remove deleted  from the state
+          console.log("book deleted successfully");
+        } else {
+          console.error("Error deleting book:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error deleting book:", error);
+      }
+    }
+  };
   return (
     <div className="book">
       <Navbar />
@@ -195,7 +217,8 @@ function Book() {
             onClick={()=>handleEditClick(book)}>
               Edit
             </Button>
-            <Button style={{width:"80px",height:"35px",margin:"5px",backgroundColor:"red",borderColor:"red"}}>
+            <Button style={{width:"80px",height:"35px",margin:"5px",backgroundColor:"red",borderColor:"red"}}
+            onClick={() => handleDelete(book.bookId)}>
               Delete
             </Button>
           </Card.Body>

@@ -1,6 +1,7 @@
 .author-container {
     display: flex;
     height: 100%;
+    min-height: 608px;
   }
   
   .author-content {
