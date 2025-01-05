@@ -1,35 +1,37 @@
 .sidebar {
-  min-width: 180px;
-    width: 15%;
+  
+    width: 100px;
     background-color: #e3fed1;
-    padding: 1rem;
+    padding: 5px;
     
   }
   
   .sidebar ul {
     list-style: none;
-    padding: 5%;
+    padding: 0;
     text-align: center;
     
   }
   
   .sidebar li {
+    margin-left: 0;
     margin: 1rem 0;
     padding: 10%;
-    background-color: #30c552;
-    border-radius: 10px;
+   
   }
   .sidebar li:hover{
-    background-color: #38e460;
-    transform: scale(1.05);
-
+    transform: scale(1.2);
   }
+ 
+
   .sidebar a {
     text-decoration: none;
     color: #333;
     font-family:'DM serif text';
-    padding: 20px;
-    padding-left: 30px;
-    padding-right:30px ;
+    /* padding: 20px; */
+    /* padding-left: 20px;
+    padding-right:20px ; */
   }
-  
+  .sidebar li img{
+    width: 30px;
+  }
